@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three</title>
+    <script>
+      let fz = 10;
+      let opr = "+";
+      let pattern = "Text Growing";
+      let color = "red";
+      function fn() {
+        if (fz == 50) {
+          opr = "-";
+          pattern = "Text Shrinking";
+          color = "blue";
+        }
+
+        if (opr == "+") {
+          fz = parseInt(fz) + 5;
+        } else {
+          fz = parseInt(fz) - 5;
+        }
+
+        console.log(fz);
+
+        if (fz <= 0) return;
+
+        const element = document.getElementById("target");
+        element.style.fontSize = fz + "px";
+        element.style.color = color;
+        element.innerHTML = pattern;
+        setTimeout(fn, 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="target" style="text-align: center"></div>
+    <input type="button" value="Start" onclick="fn()" />
+  </body>
+</html>

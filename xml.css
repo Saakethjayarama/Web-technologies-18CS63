@@ -1,0 +1,12 @@
+Student {
+  display: block;
+}
+
+USN,
+Name,
+College,
+Branch,
+YOJ,
+Email {
+  border: 1px solid black;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XML Load</title>
+    <script>
+      function loadData() {
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            populate(this);
+          }
+        };
+        xmlhttp.open("GET", "/Five.xml", true);
+        xmlhttp.send();
+      }
+
+      function populate(that) {
+        const data = that.responseXML;
+
+        let content = `<table border='1'/><thead><th>usn</th><th>Name</th><th>College</th><th>Branch</th><th>YOJ</th><th>Email</th></thead><tbody>`;
+        const students = data.getElementsByTagName("Student");
+
+        for (i = 0; i < students.length; i++) {
+          content += `
+            <tr>
+              <td>${
+                students[i].getElementsByTagName("USN")[0].childNodes[0]
+                  .nodeValue
+              }</td>
+              <td>${
+                students[i].getElementsByTagName("Name")[0].childNodes[0]
+                  .nodeValue
+              }</td>
+              <td>${
+                students[i].getElementsByTagName("College")[0].childNodes[0]
+                  .nodeValue
+              }</td>
+              <td>${
+                students[i].getElementsByTagName("Branch")[0].childNodes[0]
+                  .nodeValue
+              }</td>
+              <td>${
+                students[i].getElementsByTagName("YOJ")[0].childNodes[0]
+                  .nodeValue
+              }</td>
+              <td>${
+                students[i].getElementsByTagName("Email")[0].childNodes[0]
+                  .nodeValue
+              }</td>
+            </tr>
+          `;
+        }
+
+        content += "</tbody></table>";
+
+        document.getElementById("result").innerHTML = content;
+      }
+    </script>
+  </head>
+  <body onload="loadData()">
+    <div id="result"></div>
+  </body>
+</html>

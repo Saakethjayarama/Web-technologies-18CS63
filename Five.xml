@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/css" href="./xml.css" ?>
+
+<Students>
+  <Student>
+    <USN>1JT18CS015</USN>
+    <Name>Saaketh</Name>
+    <College>JIT</College>
+    <Branch>CSE</Branch>
+    <YOJ>2018</YOJ>
+    <Email>saakethaj@gmail.com</Email>
+  </Student>
+  <Student>
+    <USN>1JT18CS000</USN>
+    <Name>John</Name>
+    <College>JIT</College>
+    <Branch>CSE</Branch>
+    <YOJ>2018</YOJ>
+    <Email>john@gmail.com</Email>
+  </Student>
+  <Student>
+    <USN>1JT18CS100</USN>
+    <Name>Rita</Name>
+    <College>JIT</College>
+    <Branch>CSE</Branch>
+    <YOJ>2018</YOJ>
+    <Email>rita@gmail.com</Email>
+  </Student>
+</Students>

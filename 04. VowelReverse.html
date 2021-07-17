@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Four</title>
+    <script>
+      function getVowelIndex(str) {
+        for (let i = 0; i < str.length; i++) {
+          switch (str[i]) {
+            case "a":
+            case "e":
+            case "i":
+            case "o":
+            case "u":
+            case "A":
+            case "E":
+            case "I":
+            case "O":
+            case "U":
+              return i;
+          }
+        }
+        return -1;
+      }
+
+      function reverse(str) {
+        let result = "";
+        for (let i = 0; i < str.length; i++) {
+          result += str[str.length - i - 1];
+        }
+
+        return result;
+      }
+
+      function findSolution() {
+        console.info("Entered findSolution");
+
+        const str1 = document.forms.strForm.str1.value;
+        const str2 = document.forms.strForm.str2.value;
+
+        let vowelResult = getVowelIndex(str1);
+        const reverseString = reverse(str2);
+
+        if (vowelResult == -1) {
+          vowelResult = "Vowel not found";
+        } else {
+          vowelResult = "Vowel at index: " + vowelResult;
+        }
+
+        document.getElementById("vowel").innerHTML = vowelResult;
+        document.getElementById("rev").innerHTML = "Reverse: " + reverseString;
+      }
+    </script>
+  </head>
+  <body>
+    <form name="strForm">
+      <input type="text" name="str1" />
+      <input type="text" name="str2" />
+      <input type="button" value="Submit" onclick="findSolution()" />
+    </form>
+    <div id="vowel"></div>
+    <div id="rev"></div>
+  </body>
+</html>
